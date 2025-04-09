@@ -1,0 +1,217 @@
+1. What is Node.js and how it works?
+
+ans : Node.js is a runtime environment that allows you to run JavaScript code outside of a web browser — mainly used for building fast and scalable server-side applications.Built on Chrome's V8 JavaScript Engine: This engine compiles JavaScript to native machine code, which makes Node.js fast.its single thread all operations are manage through event loop in node js.
+
+
+2. What is a first class function in Javascript?
+
+ans : Functions can be treated like any other value.
+
+Just like numbers, strings, or objects — functions can be:
+
+Assigned to variables
+
+Passed as arguments to other functions
+
+Returned from other functions
+
+Stored in data structures (arrays, objects, etc.).
+
+
+3.How is Node.js better than other frameworks most popularly used?
+
+ans : Node.js provides simplicity in development because of its non-blocking I/O and event-based model results in short response time and concurrent processing, unlike other frameworks where developers have to use thread management. 
+ 
+It runs on a chrome v8 engine which is written in c++ and is highly performant with constant improvement. 
+ 
+Also since we will use Javascript in both the frontend and backend the development will be much faster. 
+
+
+4. What are some commonly used timing features of Node.js?
+
+ans : settimeout,setinterval,setimmediet.
+
+
+
+5. What is fork in node JS?
+
+ans :  Node.js, fork is a way to create a new child process — typically used when you want to run multiple instances of your Node application or handle CPU-intensive tasks separately.
+
+
+6.Why is Node.js single-threaded?
+
+ans : Node.js is intentionally single-threaded because it’s built around an event-driven, non-blocking I/O model, which is great for:
+
+Handling many concurrent requests
+
+Writing asynchronous code
+
+Keeping resource usage low and efficient
+
+
+7.create simple node js server?
+
+ans : const http = require('http');
+
+// Create a server
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello from Node.js Server!');
+});
+
+// Listen on port 3000
+server.listen(3000, () => {
+  console.log('Server is running at http://localhost:3000');
+});
+
+
+
+8.How many types of API functions are there in Node.js?
+
+ans :  Asynchronous (Non-blocking) Functions :These functions do not block the execution of other code. They take a callback, return a Promise, or use async/await.
+
+ Synchronous (Blocking) Functions : These functions block the rest of the code until the current operation finishes. They're easier to write but not recommended in production for I/O-heavy tasks.
+
+
+9. What is REPL?
+
+ans :  Node.js stands for Read, Eval, Print, and Loop.
+
+
+10.Explain the concept of stub in Node.js?
+
+ans : 	A stub is a fake function you use in place of a real function — mainly for testing.
+
+
+11.For Node.js, why Google uses V8 engine?
+
+ans : Well, are there any other options available? Yes, of course, we have Spidermonkey from Firefox, Chakra from Edge but Google’s v8 is the most evolved and fastest we got till now as a JavaScript and WebAssembly engine. And it is portable to almost every machine known.
+
+
+12.Why should you separate Express app and server?
+
+ans : The server is responsible for initializing the routes, middleware, and other application logic whereas the app has all the business logic which will be served by the routes initiated by the server. This ensures that the business logic is encapsulated and decoupled from the application logic which makes the project more readable and maintainable.
+
+
+13.What is middleware?
+
+ans : Middleware comes in between your request and business logic. It is mainly used to capture logs and enable rate limit, routing, authentication, basically whatever that is not a part of business logic. There are third-party middleware also such as body-parser and you can write your own middleware for a specific use case.
+
+
+
+14. What are node.js buffers?
+
+ans : In general, buffers is a temporary memory that is mainly used by stream to hold on to some data until consumed. Buffers are introduced with additional use cases than JavaScript’s Unit8Array and are mainly used to represent a fixed-length sequence of bytes.
+
+
+15.What is node.js streams?
+
+ans : Streams are data-handling objects in Node.js. They let you read or write data piece by piece (called chunks) instead of loading the whole thing at once.
+
+types of streams : 
+		Readable : Can be read from
+		Writable : Can be written to
+		Duplex	 :  Can read and write
+		Transform : Can modify data while passing through
+
+
+16.How does Node.js overcome the problem of blocking of I/O operations?
+
+ans : Node.js overcomes this using two key things:
+
+		1) Event Loop : It runs on a single thread but uses an event-driven architecture.
+		2) Callbacks, Promises, and async/await : These are used to handle the result of I/O operations once they complete — 									instead of blocking the flow.
+
+
+17. What is an event-loop in Node JS?
+
+ans : The event loop is a mechanism that allows Node.js to:
+
+Perform non-blocking I/O operations
+
+Handle thousands of requests on a single thread
+
+Execute asynchronous callbacks (like setTimeout, file reads, DB queries, etc.)
+
+How Does It Work?
+
+Here’s the basic flow:
+
+🟢 Node starts your script.
+
+🔄 The event loop begins running.
+
+⌛ Long tasks like file reading, timers, and DB queries get sent to the background (via libuv).
+
+✅ Once those tasks are done, callbacks are added to a queue.
+
+🔁 The event loop picks up those callbacks one by one and executes them.
+
+
+
+18.What is an Event Emitter in Node.js?
+
+ans : EventEmitter is a Node.js feature that lets you create and listen to custom events in your app.
+
+const EventEmitter = require('events');   // 1. Get the EventEmitter
+const emitter = new EventEmitter();       // 2. Create a new emitter
+
+// 3. Set up a listener
+emitter.on('greet', (name) => {
+  console.log(`Hello, ${name}!`);
+});
+
+// 4. Emit the event
+emitter.emit('greet', 'Alice');  // ➡️ This triggers the listener
+
+
+19. Enhancing Node.js performance through clustering?
+
+ans : Node.js applications run on a single processor, which means that by default they don’t take advantage of a multiple-core system. Cluster mode is used to start up multiple node.js processes thereby having multiple instances of the event loop. When we start using cluster in a nodejs app behind the scene multiple node.js processes are created but there is also a parent process called the cluster manager which is responsible for monitoring the health of the individual instances of our application.
+
+
+20.What is a thread pool and which library handles it in Node.js?
+
+ans : The Thread pool is handled by the libuv library. libuv is a multi-platform C library that provides support for asynchronous I/O-based operations such as file systems, networking, and concurrency. 
+
+
+21.How are worker threads different from clusters?
+
+ans : Node.js is single-threaded by default — it runs on one thread using the event loop. But for CPU-heavy tasks or handling many requests, that one thread can get overwhelmed.
+
+To fix this, Node.js gives us two tools:
+
+✅ Worker Threads – for parallel work within the same process
+
+✅ Cluster – for running multiple Node.js processes
+
+
+🔍 Key Differences Between Worker Threads and Clusters:
+Feature    			Worker Threads	        		Clusters
+🧠 Type				Multiple threads (same process)		Multiple processes
+🧠 Memory			Shared memory between threads		Separate memory for each process
+🔁 Communication		Fast, via shared memory or messages	Slower, via IPC (inter-process communication)
+🧠 Use Case			CPU-bound tasks (e.g. image processing)	Scaling servers (e.g. handling many users)
+🛠 Module			worker_threads module			cluster module
+🔐 Crash isolation	Shared process – one crash affects all		Isolated – one crash won’t affect others
+
+
+
+
+22.How do you handle uncaught exceptions in Node.js?
+
+ans : process.on('uncaughtException', (err) => {
+  console.error('Uncaught:', err);
+});
+
+
+23.
+
+
+
+
+
+
+
+
+
