@@ -1,0 +1,42 @@
+set name adinath  ///set new value 
+get name         /// get that value
+
+mset bike:1 "honda" bike:2 "hero" bike:3 "tvs"  ///set multiple value at a time
+
+
+mget user:1 user:2 user:3     ///get multiple value at time
+
+
+
+ lpush msg hey     //push data from left to list
+
+
+rpush msg bye   //push data from right to list
+
+
+lpop msg  //remove element from left in list
+
+
+rpop msg    //remove ele from right in list
+
+ lrange msg 0 -1  ///get all list ele at a time 
+
+
+
+sadd ip 1   //add unique values in list 
+
+
+
+HSET bike:1 model Deimos brand Ergonom type 'Enduro bikes' price 4972     ///add multiple values at a time as an object
+
+
+HGETALL bike:1   ///get all entries from object
+
+
+
+
+
+
+
+
+
