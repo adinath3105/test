@@ -1,0 +1,76 @@
+docker documentation
+
+
+basically we use docker in our application to maintain the package dependency over all system where we are going to run the project using docker container 
+
+
+docker image : where the configuration is define  to create multiple container on local environment
+
+
+container : where our code and dependency are defined.
+
+
+1)why we use docker in our application ?
+ans: Docker containers package an application with all its dependencies, ensuring it runs the same way in development, testing, and production.
+Eliminates the "it works on my machine" problem.
+
+
+docker version leared : 25.0.5
+
+
+docker commands:
+
+1) docker run nginx = this command use to run docker image on instance of nginx
+
+2) docker ps = will give you status of all running container list
+
+3)docker ps -a = will use to check all containers are running or not.
+
+4)docker stop "container_name" = will use stop running container.
+
+5)docker rm "container_name"=will use to remove container permenentaly
+
+6)docker images = will use to check the list of images
+
+7)docker run redis:4.0 = this will run redis version of 4.0
+
+
+port mapping of container:
+
+we can change the port number of container so we can access that container where our image is running outside of application browser
+
+
+Advance docker concept : 
+
+
+docker storage file system
+
+
+when we create image of our application that time image is read only but on container layer we can read and write operation done on that image
+
+
+by default all images in docker are pulled from docker hub 
+
+docker registry: where all images are pushed and we can take a pull of images from here
+
+
+
+docker engine : this contain docker demon which handle background process such as images,containers,volumes and networks.rest api is a api interface that talk with docker demon to provide instruction.docker cli is used to perform such actions like run container,stop container,destroy images.using docker cli we can access docker engine from different systems also command is used for this is
+
+docker -H=remote-docker-engine:2375
+
+
+
+container orchestration : is solution 
+
+
+
+
+
+
+http://localhost:8001/redis-stack/browser ///open redis gui
+docker exec -it 8607d0f0ee9a bash   ///we enter in current running docker image
+
+
+
+
