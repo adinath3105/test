@@ -1,0 +1,200 @@
+1.What is Angular?
+
+=>Angular is javascript framework that use to develope dynamic,single-page web application(spa)
+
+
+2.What are the key features of Angular?
+
+=> key features of angular is component based architecture,directive,pipes,data binding,dependency injection.
+
+
+3.Explain the difference between Angular and AngularJS.
+
+=>angularjs is uses js but angular uses typescript,angularjs not mobilesupport but angular support mobile ,angularjs has mvc architecture but angular has component based architecture.
+
+
+4.What is a component in Angular?
+
+=>component is main building block of an angular application it contains 3 file
+	a)html-that contains html part of an component
+	b)css-contains style part of html code
+	c)ts-ts file contain logic part of an component
+
+
+5.What is Angular CLI?
+
+=>its command line interface that use to create component,module,service and serve the angular application.
+
+
+
+6.what is data binding?
+
+=> data binding create connection between ui and ts file.types of data binding are
+	a)string interpolation-{{}}
+	b)property binding-[]
+	c)two way data binding-[(ngModel)]
+	d)event binding-()
+
+7.What are directives in Angular?
+
+=>change the behaviour of dom element.types of directives are
+		a)structural directives-*ngIf,*ngFor
+		b)attribute directive-ngClass,ngStyle
+
+
+8.What are services in Angular?
+
+=> provide reusable logic, data storage, and communication across components.
+
+
+9.What is the purpose of ngModel?
+
+=>its use for two way data binding in angular
+
+
+10.What is a module in Angular?
+
+=>in module we register our component services so we can use that module for lazy loading
+
+
+11.What are Angular Lifecycle Hooks and why are they important?
+
+=> ngOnChanges — Called when an input property changes.
+ngOnInit — Called once when the component is initialized.
+ngDoCheck — Called during every change detection cycle (for custom checks).
+ngAfterContentInit — Called after content (via <ng-content>) is initialized.
+ngAfterContentChecked — Called after every content check.
+ngAfterViewInit — Called after the component’s view and its children are initialized.
+ngAfterViewChecked — Called after every view check.
+ngOnDestroy — Called just before the component is destroyed.
+
+
+
+12.What is Dependency Injection (DI) in Angular?
+
+=>Dependency Injection (DI) is a design pattern and one of the core concepts in Angular. It is used to manage and provide dependencies to classes or components in an Angular application. In simple terms, DI allows Angular to automatically provide the dependencies that a component or service needs, rather than requiring them to be created manually.
+
+
+13.What are Observables in Angular?
+
+=>Observables in Angular are a powerful mechanism for handling asynchronous operations.they are lazy in nature.its emiting data continues if we have to get that data we have to subscribe that observable.once we subscribe the observable we also have to unsubscribe that observable in ngOndestroy lifecycle hook
+
+
+14.What is RxJS and how does it relate to Angular?
+
+=> RxJS (Reactive Extensions for JavaScript) is a powerful library for reactive programming using Observables to manage asynchronous events and data streams. for async operation we use  map(), filter(), merge(), switchMap(), and many others operators.
+
+
+
+15.forms in Angular?
+
+=> there are two types of form in angular 1)template driven form 2)reactive form
+
+
+16.What is Routing in Angular?
+
+=>routing is mechanism in angular that provide you to navigate from one page to another page without reload the whole page.
+
+
+17.What is Lazy Loading in Angular?
+
+=>is used to load module or component in app as per user need rather than load all component or module at one time.without lazy loading all component are loaded at one time this will effect on application performance
+
+syntax for lazy load in routing module is :
+		  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) } 
+
+
+18.What are Angular pipes?
+
+=> pipes in angular is used to transform data in template
+	types of pipe are :date,uppercase,lowercase,json,currency,async,
+we can create our custome pipe also in angular
+
+
+19.What is Angular Change Detection?
+
+=>Angular's change detection mechanism runs frequently, detecting any updates to your application’s ts variables and rendering the necessary changes in the UI.
+
+
+
+
+20.What is Ahead-of-Time (AOT) Compilation in Angular?
+
+=> compile the angular application during the run time and transform the typescript code into js so browser can run the code.using this application render in browser is faster.
+
+
+
+21.What is a Subject in RxJS, and how is it different from an Observable?
+
+=> Subject is a special type of Observable is "multicaster", meaning it can have multiple subscribers (Observers) at once and they will all receive the same value emitted from the Subject in real-time.
+
+behaviour subject : it holds initial value in angular 
+
+
+
+
+22.What is the difference between constructor and ngOnInit?
+
+=> constructor are used to initialise the class and its properties in Angular.other hand oninit is called after contructor called to perform specific logic initialisation
+
+
+
+23.How does an Angular application work?
+
+=>Angular application consist of Angular.json file.in that file intry point of application is main.ts this file run and bootstrap appmodule.when appmodule is run it bootstrap appcomponent its root component of angular application.
+
+
+24.What are Decorators and their types in Angular?
+
+=>Decorators are functions that modify classes, methods, properties, or parameters in a declarative way.declare using @ symbol
+			types of decorator:@component,@inject,@input,@output,@ngmodel
+
+
+
+25.What are HTTP interceptors ?
+
+=>Using the HttpClient, interceptors allow us to intercept incoming and outgoing HTTP requests. They are capable of handling both HttpRequest and HttpResponse. We can edit or update the value of the request by intercepting the HTTP request, and we can perform some specified actions on a specific status code or message by intercepting the answer.
+
+
+
+
+
+26.guard in angular?
+
+=> we use guard in angular to restrict user to routing another page without permission
+
+types of guard:
+
+canactivate : Used to decide whether a user can enter a route or not.
+candeactivate : use to ask user for confirmation before leave current page.
+CanActivateChild : used to control access to child routes of a parent route.
+CanLoad : Used to decide whether a lazy-loaded module can be loaded or not.
+
+
+27.unit testing in angular?
+
+28.ssr in angular?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
